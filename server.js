@@ -1,13 +1,12 @@
 const moment = require('moment')
 const express = require('express')
-
 const pug = require('pug')
-const compiledTemplate = pug.compileFile('template/template.pug')
 
+const compiledTemplate = pug.compileFile('template/template.pug')
 const app = express()
 
 // Error Handling to stop broken params, we're talking beyond just invalid
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   var err = null;
   try {
     decodeURIComponent(req.path)
@@ -19,8 +18,10 @@ app.use(function (req, res, next) {
     console.log(err, req.url);
     return res.redirect(['https://', req.get('Host'), '/404'].join(''));
   }
-  next(); //Once the error handler is done, NEXT will jump to the next function
-});
+
+  //Once the error handler is done, next() will jump to the next function
+  next()
+})
 
 app.get('/:date', (req, res) => {
   let date = req.params.date
@@ -34,10 +35,7 @@ app.get('/:date', (req, res) => {
     payload.humanDate = moment(date).format('MMM Do, YYYY')
   }
 
-  res.send(compiledTemplate({ payload })
-
-  )
-
+  res.send(compiledTemplate({ payload }))
 })
 
 app.listen(8000)
