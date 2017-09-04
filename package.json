@@ -8,8 +8,16 @@
   },
   "author": "Greg <harrison.greg.c@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
+    "pug": "^2.0.0-rc.3"
+  },
   "devDependencies": {
-    "eslint": "^4.5.0"
+    "eslint": "^4.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
   }
 }

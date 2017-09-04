@@ -1,4 +1,13 @@
 {
+<<<<<<< HEAD
+=======
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+>>>>>>> 95445aa4b7342e240146f772b71c3d0aace5fb17
   "rules": {
     "strict": 0
   }
